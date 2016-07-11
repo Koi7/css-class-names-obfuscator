@@ -21,7 +21,7 @@ Output:
 ## Second example
 Input: [see input data here](https://github.com/Koi7/css-class-names-obfuscator/blob/master/test1.json)
 
-Output. Most common css class names go first and has shortes new name:
+Output. Most common css class names go first and has shortest new name:
 ```javascript
 { sinvb: 'q',
   rlcbrr: 'w',
