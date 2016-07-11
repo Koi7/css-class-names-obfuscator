@@ -5,13 +5,18 @@ module.exports = function(data) {
   var classes = [];
   var frequencies = [];
   var newClassNamesObject = {};
-  for (var i = 0; i < data.length; i++){
-  		if (classes.indexOf(data[i]) == -1){
-  			classes.push(data[i]);
-  			currentClassName = data[i];
+  var latinAlphabet = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"];
+  var noneLetterCharacters = ["-", "_", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  var newClassNames = [];
+  var newClassNameLength = 2;
+  var latinAlphabetIterator = 0;
+  for (var oldClassNameIterator = 0; oldClassNameIterator < data.length; oldClassNameIterator++){
+  		if (classes.indexOf(data[oldClassNameIterator]) == -1){
+  			classes.push(data[oldClassNameIterator]);
+  			currentClassName = data[oldClassNameIterator];
   			classNameOccurrenceFrequencyCounter = 0;
-  			for (var k = 0; k < data.length; k++){
-  				if (currentClassName == data[k]){
+  			for (var oldClassNameIteratorInner = 0; oldClassNameIteratorInner < data.length; oldClassNameIteratorInner++){
+  				if (currentClassName == data[oldClassNameIteratorInner]){
   					classNameOccurrenceFrequencyCounter++;
   				}
   			}
@@ -22,6 +27,8 @@ module.exports = function(data) {
   			frequencies.push(classNameAndFrequency);
   		}
   }
+    
+  
   //sort class names by frequencies
   frequencies.sort(function (a, b){
   		if (a.frequency > b.frequency)
@@ -30,11 +37,7 @@ module.exports = function(data) {
   			return 1;
   		return 0;
   });
-  var latinAlphabet = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"];
-  var noneLetterCharacters = ["-", "_", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  var newClassNames = [];
-  var newClassNameLength = 2;
-  var latinAlphabetIterator = 0;
+  console.log(frequencies);
   for (classNamesIterator in frequencies){
   	var newClassName = [];
   	if (classNamesIterator % latinAlphabet.length == 0)
