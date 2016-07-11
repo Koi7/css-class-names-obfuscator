@@ -132,3 +132,14 @@ Output. Most common css class names go first and has shortest new name:
   gnfjavnw: 'Sn',
   xoyviygy: 'DX' }
 ```
+# P.S.
+Если по наличием документации вы имели в виду документирование исходного кода модуля, то о каком документировании вы говорите требуя, чтобы модуль выглядел так:
+```javascript
+/** 
+  * @param {Array} data – массив CSS классов
+  */
+module.exports = function(data) {
+  // Ваш код
+};
+````
+?
