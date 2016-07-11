@@ -8,6 +8,23 @@ To use module just require it and provide a paramater:
     var newNames = mod(cssClasses);
     console.log(newNames);
 ```
+# Algorithm
+Firstly, module iterates through data array and creates array of objects. Objects have two properties: className (reflects unique css class name) and frequency (how often this class name appears in array). It is necessary for minification.
+Example of such array of objects:
+```javascript
+[ { className: 'some', frequency: 3 },
+  { className: 'body', frequency: 2 },
+  { className: 'help', frequency: 1 },
+  { className: 'ME', frequency: 2 } ]
+```
+After that nodule sorts this array by frequency:
+```javascript
+[ { className: 'some', frequency: 3 },
+  { className: 'body', frequency: 2 },
+  { className: 'ME', frequency: 2 },
+  { className: 'help', frequency: 1 } ]
+```
+After that module cretes new names from one latin character while it is possible. When it is not possible module increases new name length and tries to create new class name from to characters (first - only latin characters, secind - lating characters, "-", "_" and digits). Each time module meets matches between already created class names and cureent new class name it increases class name length.
 # Examples
 ## First example
 Input:
